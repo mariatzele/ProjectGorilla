@@ -4,19 +4,740 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/2f72a845f8.js" crossorigin="anonymous"></script>
     <title>ProjectGorilla
     </title>
 </head>
 <style>
     html body {
-        background-color: rgb(108, 163, 211);
+        width: 100vw;
+        padding: 0;
+        margin: 0;
+        background-color: rgb(255, 255, 255);
+    }
+    
+    nav {
+        display: flex;
+        flex-direction: row;
+        height: 8vh;
+    }
+    
+    .nav-link {
+        font-size: 20px;
+        color: rgb(3, 7, 18);
+    }
+    
+    .nav-item>a {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    
+    .hero-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color: rgb(255, 255, 255);
+        background-color: rgb(3, 7, 18);
+        height: 92vh;
+    }
+    
+    .hero-container>img {
+        position: absolute;
+        height: 90vh;
+        opacity: 0.5;
+        filter: grayscale(70%);
+        z-index: 1;
+    }
+    
+    .hero-container-column>h1 {
+        font-size: 70px;
+        margin: 0;
+    }
+    
+    .hero-container-column {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1em;
+        z-index: 10;
+        width: 60vw;
+        text-align: center;
+    }
+    
+    .hero-container-column-wrapper {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        width: 60%;
+        text-align: center;
+    }
+    
+    h2 {
+        opacity: 0.8;
+    }
+    
+    h6 {
+        letter-spacing: 5px;
+        opacity: 0.6;
+        width: 60%;
+    }
+    
+    @keyframes snow {
+        0% {
+            opacity: 0;
+            transform: translateY(0px);
+        }
+        20% {
+            opacity: 0.5;
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(650px);
+        }
+    }
+    
+    .box-of-star1 {
+        animation: snow 5s linear infinite;
+    }
+    
+    .box-of-star2 {
+        animation: snow 5s -1.64s linear infinite;
+    }
+    
+    .box-of-star3 {
+        animation: snow 5s -2.30s linear infinite;
+    }
+    
+    .box-of-star4 {
+        animation: snow 5s -3.30s linear infinite;
+    }
+    
+    .star {
+        width: 1px;
+        height: 3px;
+        background-color: #FFF;
+        position: absolute;
+        z-index: 10;
+        opacity: 1;
+    }
+    
+    .star:before {
+        content: "";
+        width: 1px;
+        height: 6px;
+        background-color: #ffffff;
+        position: absolute;
+        z-index: 10;
+        top: 80px;
+        left: 70px;
+        opacity: 1;
+    }
+    
+    .star:after {
+        content: "";
+        width: 2px;
+        height: 8px;
+        background-color: #ffffff;
+        position: absolute;
+        z-index: 10;
+        top: 8px;
+        left: 170px;
+        opacity: 1;
+    }
+    
+    .star-position1 {
+        top: 30px;
+        left: 20px;
+    }
+    
+    .star-position2 {
+        top: 110px;
+        left: 250px;
+    }
+    
+    .star-position3 {
+        top: 60px;
+        left: 570px;
+    }
+    
+    .star-position4 {
+        top: 120px;
+        left: 900px;
+    }
+    
+    .star-position5 {
+        top: 20px;
+        left: 1120px;
+    }
+    
+    .star-position6 {
+        top: 90px;
+        left: 1280px;
+    }
+    
+    .star-position7 {
+        top: 30px;
+        left: 1480px;
+    }
+    
+    .panel {
+        width: 60px;
+        height: 40px;
+        position: absolute;
+        top: 20px;
+        left: calc(50% - 30px);
+        background-color: #b7cceb;
+    }
+    
+    .panel:before {
+        content: "";
+        width: 30px;
+        height: 5px;
+        position: absolute;
+        z-index: 1;
+        top: 9px;
+        left: 7px;
+        background-color: #fbfdfa;
+        box-shadow: 0px 9px 0px #fbfdfa, 0px 18px 0px #fbfdfa;
+    }
+    
+    .panel:after {
+        content: "";
+        width: 2px;
+        height: 5px;
+        position: absolute;
+        z-index: 1;
+        top: 9px;
+        right: 7px;
+        background-color: #000000;
+        box-shadow: 0px 14px 0px 2px #fbfdfa;
+    }
+    
+    .full-height-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(3, 7, 18);
+        color: rgb(255, 255, 255);
+        height: 120vh;
+    }
+    /*     
+    @media (min-width: 1400px) {
+        .container {
+            max-width: 900px;
+        }
+    }
+     */
+    
+    .box {
+        margin: 3em;
+        border-radius: 20px;
+        border: 1px solid rgb(227, 93, 106);
+        /* box-shadow: inset 0 0 5px rgb(234, 134, 143); */
+        background-image: linear-gradient( rgb(3, 7, 18), rgba(229, 231, 235, 0.1));
+    }
+    
+    .neon-light-bar {
+        position: relative;
+        align-self: center;
+        width: 30%;
+        height: 10px;
+        border-radius: 10px;
+        overflow: hidden;
+        background-color: rgb(3, 7, 18);
+    }
+    
+    .neon-light {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 100%;
+        background-color: #FF5161;
+        backdrop-filter: blur(10px);
+    }
+    
+    .neon-light::before,
+    .neon-light::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 50%;
+        /* Width of the extended portion */
+        height: 100%;
+        /* Black color */
+        animation-duration: 2s;
+        /* Animation duration */
+        animation-fill-mode: forwards;
+        /* Keep the final state of the animation */
+        animation-timing-function: ease-in-out;
+        background-color: rgb(3, 7, 18);
+    }
+    
+    .neon-light::before {
+        left: 0;
+        transform: translateX(-100%);
+        animation-name: extendLeft;
+        background-color: rgb(3, 7, 18);
+        animation-iteration-count: 1;
+        /* Run the animation only once */
+    }
+    
+    .neon-light::after {
+        right: 0;
+        transform: translateX(100%);
+        animation-name: extendRight;
+        animation-iteration-count: 1;
+        /* Run the animation only once */
+    }
+    
+    @keyframes extendLeft {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-100%);
+            background-color: rgb(3, 7, 18);
+            /* Ensure black color at the end */
+        }
+    }
+    
+    @keyframes extendRight {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(100%);
+            background-color: rgb(3, 7, 18);
+            /* Ensure black color at the end */
+        }
+    }
+    
+    .clients-container-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100vh;
+        background-color: rgb(3, 7, 18);
+    }
+    
+    .clients-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: rgb(255, 255, 255);
+        background-color: rgb(3, 7, 18);
+        height: 70vh;
+    }
+    
+    .clients-container-items {
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+        margin-top: 1em;
+    }
+    
+    .clients-container-items-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 250px;
+        width: 250px;
+    }
+    
+    .small {
+        max-width: 500px;
+    }
+    
+    .img-fluid {
+        max-height: 70px;
+    }
+    
+    a {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+    }
+    
+    .clients-container-wrapper>h1 {
+        display: flex;
+        align-self: center;
+        color: rgb(255, 255, 255);
+    }
+    
+    .about-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        gap: 3em;
+        color: rgb(255, 255, 255);
+        background-color: rgb(3, 7, 18);
+        height: 100vh;
+    }
+    
+    .about-container>.neon-light-bar {
+        margin-bottom: 2em;
+    }
+    
+    .about-container>h1 {
+        margin: 0;
+    }
+    
+    .about-container-items {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1em;
+        margin-top: 1em;
+        max-width: 50vw;
+        gap: 3rem;
+    }
+    
+    .about-container-items>p {
+        margin: 0;
+        font-size: 1.25rem;
+        letter-spacing: 0.5px;
+        line-height: 28px;
+    }
+    
+    .contact-container-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 100vh;
+        background-color: rgb(3, 7, 18);
+    }
+    
+    .contact-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        color: rgb(255, 255, 255);
+        background-color: rgb(3, 7, 18);
+        width: 50vw;
+        height: auto;
+        gap: 5em;
+    }
+    
+    .contact-container-items {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 1em;
+        margin: 0;
+        margin-top: 1em;
+        width: 25vw;
+    }
+    
+    .contact-container-items-border {
+        padding: 1.25em;
+        border-radius: 8px;
+        border: 1px solid white;
+    }
+    
+    .contact-container>h1 {
+        display: flex;
+        justify-self: center;
+        align-self: center;
+    }
+    
+    .contact-container-items-border>p {
+        margin: 0;
+        margin-bottom: 1em;
+        font-size: 20px;
+    }
+    
+    .contact-container-items>p {
+        font-size: 20px;
+    }
+    
+    .contact-container-items>ul>li {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+    }
+    
+    .mb-3>input {
+        background-color: rgb(3, 7, 18);
+    }
+    
+    .mb-3>textarea {
+        background-color: rgb(3, 7, 18);
+    }
+    
+    .mb-3>::placeholder {
+        color: rgb(209, 213, 219);
+        opacity: 1;
+    }
+    
+    .fa-solid {
+        margin-right: 1em;
+    }
+    
+    .contact-container-items>ul {
+        padding: 0;
+    }
+    
+    .contact-container-items>ul>li {
+        list-style: none;
+        line-height: 32px;
+    }
+    
+    .social-media-line {
+        height: 1px;
+        color: rgb(209, 213, 219);
+    }
+    
+    .social-media-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 35vh;
+        color: rgb(209, 213, 219);
+        background-color: rgb(3, 7, 18);
+    }
+    
+    .social-media-container-items {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        color: #ffffff;
+        margin: 0;
+    }
+    
+    .social-media-container-items>h1 {
+        margin-bottom: 1.5em;
+    }
+    
+    .social-media-container-items>i {
+        margin: 1em;
     }
 </style>
 
 <body>
-    <h1>hello</h1>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand p-0 me-0" href="#">
+                <img src="Tsalapataras-Logo.png" alt="Logo" width="190" height="30" class="d-inline-block align-text-top">
+            </a>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Company</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Machinery</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-    <p>I have no idea what am i doing!</p>
+    <main>
+        <div class="hero-container">
+            <img src="tractorface 1.png">
+            <div class="hero-container-column">
+                <h1>Work Smarter, Not Harder</h1>
+                <h2>Quality Tractor Accessories for Farmers!</h2>
+                <div class="hero-container-column-wrapper">
+                    <h6>Enhance farm efficiency with durable tractor accessories for optimal performance and productivity.</h6>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid full-height-container">
+            <div class="row justify-content-center">
+                <div class="col-3 m-0">
+                    <div class="p-3 me-0 box">
+                        <h4>Enhancing Efficiency</h4>
+                        <p>Revolutionizing Agricultural Practices</p>
+                        <p>Explore farming operations, from GPS-guided precision tools to multifunctional attachments. These innovations empower farmers to optimize their workflow, increase yield, and reduce resource usage.</p>
+                    </div>
+                </div>
+                <div class="col-3 m-0">
+                    <div class="p-3 ms-0 box">
+                        <h4>Pioneering Innovations</h4>
+                        <p>Driving Growth in the Field</p>
+                        <p>Discover groundbreaking innovations reshaping agricultural productivity, such as autonomous tractor technology and advanced sensor systems. These cutting-edge solutions empower farmers to maximize efficiency and minimize downtime</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-3 m-0">
+                    <div class="p-3 me-0 box">
+                        <h4>Farm Productivity</h4>
+                        <p>Harnessing Technology for Sustainable Agriculture</p>
+                        <p>Learn about the latest advancements in tractor accessories leveraging IoT connectivity and data analytics to enhance farm productivity. From smart implements that adjust to soil conditions in real-time.</p>
+                    </div>
+                </div>
+                <div class="col-3 m-0">
+                    <div class="p-3 ms-0 box">
+                        <h4>Empowering Farmers</h4>
+                        <p>Bridging the Gap for Inclusive Farming</p>
+                        <p> Explore accessible tractor accessories designed to cater to the diverse needs of farmers, including ergonomic designs for ease of use and adaptable features for varying physical abilities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="clients-container-wrapper">
+        <div class="neon-light-bar">
+            <div class="neon-light"></div>
+        </div>
+        <h1>Our Brands</h1>
+        <div class="clients-container">
+            <div class="clients-container-items">
+                <div class="clients-container-items-box" style="background-color: #FF5161;">
+                    <img class="img-fluid" src="Partners/Ceccato-logo-removebg-preview.png">
+                    <a href="https://www.ceccato.com/en-international" target="_blank">Ceccato</a>
+                </div>
+                <div class="clients-container-items-box" style="background-color: #ffdf51;">
+                    <img class="img-fluid" src="Partners/Comap-logo-500-removebg-preview.png">
+                    <a href="https://www.comapsrl.com/en/company.php" target="_blank">Comap</a>
+                </div>
+                <div class="clients-container-items-box" style="background-color: #51ff97;">
+                    <img class="img-fluid" src="Partners/pannonlogo.webp">
+                    <a href="https://www.comapsrl.com/en/company.php" target="_blank">Ceccato</a>
+                </div>
+            </div>
+            <div class="clients-container-items">
+                <div class="clients-container-items-box" style="background-color: #5191ff;">
+                    <img class="img-fluid" src="Partners/Pegoraro-removebg-preview.png">
+                    <a href="https://www.comapsrl.com/en/company.php" target="_blank">Ceccato</a>
+                </div>
+                <div class="clients-container-items-box" style="background-color: #0b0d69;">
+                    <img class="img-fluid" src="Partners/Ferrari-logo_rgb-removebg-preview.png">
+                    <a href="https://www.comapsrl.com/en/company.php" target="_blank">Ceccato</a>
+                </div>
+                <div class="clients-container-items-box" style="background-color: #f3ff51;">
+                    <img class="img-fluid" src="Partners/Morra-removebg-preview.png">
+                    <a href="https://www.comapsrl.com/en/company.php" target="_blank">Ceccato</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="about-container">
+        <div class="neon-light-bar">
+            <div class="neon-light"></div>
+        </div>
+        <h1>About Us</h1>
+        <div class="about-container-items">
+            <p>The company was founded in 1908 by the Papatsa brothers, with the main activity being the production of industrial agricultural products. At the beginning of the 1950s, it passed into the hands of Paraschos Tsalapataras who took care of its
+                expansion and modernization.
+            </p>
+            <p>In 1976, it relocated to a privately owned, fully equipped industrial site in Ionia, Thessaloniki, where it continues to manufacture and import all types of agricultural machinery to this day.
+            </p>
+            <p>In 2007, Paraschos Tsalapataras was honored by E.KA.GE.M as a pioneer in the development of the agricultural machinery industry. Since 2009, the arduous work of Mr. Tsalapataras has been continued by his partner of ten years, Stylianos Arvithis,
+                as well as his children Anestis Perisinakis, Lamprini, and Athanasios. Consistent with its 100-year tradition, the company's goal always remains the excellent service of the Greek farmer.
+            </p>
+        </div>
+    </div>
+    <div class="contact-container-wrapper">
+        <div class="neon-light-bar">
+            <div class="neon-light"></div>
+        </div>
+        <h1>Contact Us</h1>
+        <div class="contact-container">
+            <div class="contact-container-items">
+                <div class="contact-container-items-border">
+                    <p>Contact Form</p>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Name">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Surname">
+                    </div>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email-Address">
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Text-Message"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-container-items">
+                <p>Location</p>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>9ο km Thessaloniki-Veria P.C. 570 08
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-phone"></i>2310 781 454
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-fax"></i>2310 781 363
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>tsalapataras.rev@gmail.com
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="social-media-line"></div>
+    <div class="social-media-container">
+        <div class="social-media-container-items">
+            <h1>Our Social</h1>
+        </div>
+        <div class="social-media-container-items">
+            <i class="fa-brands fa-youtube"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+
+    </div>
 </body>
+<script src=" index.js "></script>
 
 </html>
+<!-- <div class="box-of-star1">
+    <div class="star star-position1"></div>
+    <div class="star star-position2"></div>
+    <div class="star star-position3"></div>
+    <div class="star star-position4"></div>
+    <div class="star star-position5"></div>
+    <div class="star star-position6"></div>
+    <div class="star star-position7"></div>
+</div>
+<div class="box-of-star2">
+    <div class="star star-position1"></div>
+    <div class="star star-position2"></div>
+    <div class="star star-position3"></div>
+    <div class="star star-position4"></div>
+    <div class="star star-position5"></div>
+    <div class="star star-position6"></div>
+    <div class="star star-position7"></div>
+</div>
+<div class="box-of-star3">
+    <div class="star star-position1"></div>
+    <div class="star star-position2"></div>
+    <div class="star star-position3"></div>
+    <div class="star star-position4"></div>
+    <div class="star star-position5"></div>
+    <div class="star star-position6"></div>
+    <div class="star star-position7"></div>
+</div>
+<div class="box-of-star4">
+    <div class="star star-position1"></div>
+    <div class="star star-position2"></div>
+    <div class="star star-position3"></div>
+    <div class="star star-position4"></div>
+    <div class="star star-position5"></div>
+    <div class="star star-position6"></div>
+    <div class="star star-position7"></div>
+</div> -->
