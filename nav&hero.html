@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2f72a845f8.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <title>nav&hero</title>
+</head>
+<style>
+     :root {
+        --deep-red: rgb(139, 0, 0);
+        --crimson-red: rgb(220, 20, 60);
+        --black: rgb(3, 7, 18);
+        --dark-grey: rgb(64, 64, 64);
+        --white: rgb(251, 251, 251);
+    }
+    
+    * {
+        box-sizing: border-box;
+    }
+    
+    html body {
+        width: 100vw;
+        padding: 0;
+        margin: 0;
+        background-color: rgb(255, 255, 255);
+    }
+</style>
+
+<body>
+
+    <div class="clients-container-wrapper">
+        <div class="neon-light-bar">
+            <div class="neon-light"></div>
+        </div>
+        <h1>Our Brands</h1>
+        <div class="clients-container">
+            <div class="clients-container-items">
+                <div class="clients-container-items-box" style="background-color: #FF5161;">
+                    <img class="img-fluid" src="Partners/Ceccato-logo-removebg-preview.png">
+                    <a href="https://www.ceccato.com/en-international" target="_blank">Ceccato 
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+                <div class="clients-container-items-box" style="background-color: #ffdf51;">
+                    <img class="img-fluid" src="Partners/Comap-logo-500-removebg-preview.png">
+                    <a href="https://www.comapsrl.com/en/company.php" target="_blank">Comap
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+                <div class="clients-container-items-box" style="background-color: #51ff97;">
+                    <img class="img-fluid" src="Partners/pannonlogo.webp">
+                    <a href="https://www.comapsrl.com/en/company.php" target="_blank">Ceccato
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="clients-container-items">
+                <div class="clients-container-items-box" style="background-color: #5191ff;">
+                    <img class="img-fluid" src="Partners/Pegoraro-removebg-preview.png">
+                    <a href="https://www.comapsrl.com/en/company.php" target="_blank">Ceccato
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+                <div class="clients-container-items-box" style="background-color: #0b0d69;">
+                    <img class="img-fluid" src="Partners/Ferrari-logo_rgb-removebg-preview.png">
+                    <a href="https://www.comapsrl.com/en/company.php" target="_blank">Ceccato
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+                <div class="clients-container-items-box" style="background-color: #f3ff51;">
+                    <img class="img-fluid" src="Partners/Morra-removebg-preview.png">
+                    <a href="https://www.comapsrl.com/en/company.php" target="_blank">Ceccato
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <p>Farming Accessories</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script>
+    function menubutton() {
+        console.log("menu click") const navigation = document.getElementById("menu");
+        if (navigation.style.display == "block") {
+            navigation.style.display = "none";
+        } else {
+            navigation.style.display = "block";
+        }
+    }
+    document.addEventListener("click",
+        function(e) {
+            var navigation = document.getElementById("menu");
+            var menuIcon = document.getElementById("menu-icon");
+            if (e.target !== menuIcon && e.target !== navigation && !navigation.contains(e.target)) {
+                navigation.style.display = "none";
+            }
+        })
+</script>
+
+</html>
+
+@keyframes snow { 0% { opacity: 0; transform: translateY(0px); } 20% { opacity: 0.5; } 100% { opacity: 1; transform: translateY(650px); } } .box-of-star1 { animation: snow 5s linear infinite; } .box-of-star2 { animation: snow 5s -1.64s linear infinite;
+} .box-of-star3 { animation: snow 5s -2.30s linear infinite; } .box-of-star4 { animation: snow 5s -3.30s linear infinite; } .star { width: 1px; height: 3px; background-color: #FFF; position: absolute; z-index: 10; opacity: 1; } .star:before { content:
+""; width: 1px; height: 6px; background-color: #ffffff; position: absolute; z-index: 10; top: 80px; left: 70px; opacity: 1; } .star:after { content: ""; width: 2px; height: 8px; background-color: #ffffff; position: absolute; z-index: 10; top: 8px; left:
+170px; opacity: 1; } .star-position1 { top: 30px; left: 20px; } .star-position2 { top: 110px; left: 250px; } .star-position3 { top: 60px; left: 570px; } .star-position4 { top: 120px; left: 900px; } .star-position5 { top: 20px; left: 1120px; } .star-position6
+{ top: 90px; left: 1280px; } .star-position7 { top: 30px; left: 1480px; } .panel { width: 60px; height: 40px; position: absolute; top: 20px; left: calc(50% - 30px); background-color: #b7cceb; } .panel:before { content: ""; width: 30px; height: 5px; position:
+absolute; z-index: 1; top: 9px; left: 7px; background-color: #fbfdfa; box-shadow: 0px 9px 0px #fbfdfa, 0px 18px 0px #fbfdfa; } .panel:after { content: ""; width: 2px; height: 5px; position: absolute; z-index: 1; top: 9px; right: 7px; background-color:
+#000000; box-shadow: 0px 14px 0px 2px #fbfdfa; }
