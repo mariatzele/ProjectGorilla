@@ -27,11 +27,12 @@
         width: 100vw;
         padding: 0;
         margin: 0;
-        background-color: rgb(255, 255, 255);
+        background-color: rgb(3, 7, 18);
     }
     
     nav {
         width: 100vw;
+        background-color: #ffffff;
     }
     
     .navigation-bar {
@@ -101,26 +102,28 @@
     
     @media screen and (max-width: 900px) {
         .navigation-bar {
+            position: relative;
             display: flex;
             flex-direction: column;
             height: 8vh;
             width: 100vw;
         }
+        .navigation-row {
+            position: absolute;
+        }
         #menu-icon {
             display: block;
         }
         #menu {
+            margin-top: 8vh;
             display: none;
             align-self: flex-end;
             margin-right: 2em;
             width: fit-content;
             box-shadow: 0 0 10px 1px rgba(3, 7, 18, 0.25);
-            background-color: rgba(3, 7, 18, 0.45);
+            background-color: rgba(146, 146, 146, 0.5);
             backdrop-filter: blur(15px);
             border-radius: 14px;
-        }
-        #photo-logo {
-            width: 60%;
         }
         ul>#menu-items {
             display: flex;
@@ -289,7 +292,8 @@
         background-image: linear-gradient( rgb(3, 7, 18), rgba(229, 231, 235, 0.1));
     }
     
-    .neon-light-bar {
+    #neon-light-bar {
+        margin-top: 5em;
         position: relative;
         align-self: center;
         width: 30%;
@@ -299,7 +303,7 @@
         background-color: rgb(3, 7, 18);
     }
     
-    .neon-light {
+    #neon-light {
         position: absolute;
         top: 0;
         left: 50%;
@@ -310,8 +314,8 @@
         backdrop-filter: blur(10px);
     }
     
-    .neon-light::before,
-    .neon-light::after {
+    #neon-light::before,
+    #neon-light::after {
         content: '';
         position: absolute;
         top: 0;
@@ -327,7 +331,7 @@
         background-color: rgb(3, 7, 18);
     }
     
-    .neon-light::before {
+    #neon-light::before {
         left: 0;
         transform: translateX(-100%);
         animation-name: extendLeft;
@@ -336,7 +340,7 @@
         /* Run the animation only once */
     }
     
-    .neon-light::after {
+    #neon-light::after {
         right: 0;
         transform: translateX(100%);
         animation-name: extendRight;
@@ -385,8 +389,6 @@
         color: rgb(255, 255, 255);
     }
     
-    @media screen and (max-width: 900px) {}
-    
     .about-container {
         display: flex;
         flex-direction: column;
@@ -412,8 +414,14 @@
         justify-content: center;
         gap: 1em;
         margin-top: 1em;
-        max-width: 50vw;
+        width: 50vw;
         gap: 3rem;
+    }
+    
+    @media screen and (max-width: 900px) {
+        .about-container-items {
+            width: 80vw;
+        }
     }
     
     .about-container-items>p {
@@ -423,83 +431,82 @@
         line-height: 28px;
     }
     
-    .contact-container-wrapper {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        height: 100vh;
-        background-color: rgb(3, 7, 18);
+    .fa-solid {
+        margin-right: 1em;
     }
     
     .contact-container {
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-items: center;
-        color: rgb(255, 255, 255);
+        /* align-items: center; */
         background-color: rgb(3, 7, 18);
-        width: 50vw;
-        height: auto;
-        gap: 5em;
     }
     
-    .contact-container-items {
+    .contact-container>.box>p {
+        color: #ffffff;
+    }
+    
+    .contact-container>.box>ul>li {
+        list-style: none;
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+    
+    .contact-container>.box>ul>li>p {
+        color: #ffffff;
+        margin: 0;
+    }
+    
+    .contact-container>.contact-box>ul>li>i {
+        color: #ffffff;
+    }
+    
+    .contact-box {
+        color: #ffffff;
+        max-width: 350px;
+        min-height: 350px;
+        margin: 1.5em;
+        border-radius: 20px;
+        padding: 1em;
+        border: 1px solid rgb(236, 36, 76);
+        box-shadow: inset 0 0 5px rgb(220, 20, 60);
+        background-image: linear-gradient( rgb(3, 7, 18), rgba(229, 231, 235, 0.1));
+        width: 90%;
+    }
+    
+    .contact-box>ul {
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        gap: 1em;
+        justify-content: center;
+        align-items: start;
         margin: 0;
-        margin-top: 1em;
-        width: 25vw;
-    }
-    
-    .contact-container-items-border {
-        padding: 1.25em;
-        border-radius: 8px;
-        border: 1px solid white;
-    }
-    
-    .contact-container>h1 {
-        display: flex;
-        justify-self: center;
-        align-self: center;
-    }
-    
-    .contact-container-items-border>p {
-        margin: 0;
-        margin-bottom: 1em;
-        font-size: 20px;
-    }
-    
-    .contact-container-items>p {
-        font-size: 20px;
-    }
-    
-    .contact-container-items>ul>li {
-        text-decoration: none;
-        color: rgb(255, 255, 255);
-    }
-    
-    .mb-3>input {
-        background-color: rgb(3, 7, 18);
-    }
-    
-    .mb-3>textarea {
-        background-color: rgb(3, 7, 18);
-    }
-    
-    .mb-3>::placeholder {
-        color: rgb(209, 213, 219);
-        opacity: 1;
-    }
-    
-    .fa-solid {
-        margin-right: 1em;
-    }
-    
-    .contact-container-items>ul {
         padding: 0;
+    }
+    
+    .list-items-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .list-items-row>p {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .row-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 2em;
+        margin-bottom: 2em;
+        background-color: rgb(3, 7, 18);
+    }
+    
+    @media screen and (max-width: 900px) {
+        .contact-container {
+            flex-direction: column;
+        }
     }
     
     .contact-container-items>ul>li {
@@ -619,8 +626,8 @@
         </div>
     </div>
     <div class="about-container">
-        <div class="neon-light-bar">
-            <div class="neon-light"></div>
+        <div id="neon-light-bar">
+            <div id="neon-light"></div>
         </div>
         <h1>About Us</h1>
         <div class="about-container-items">
@@ -634,51 +641,57 @@
             </p>
         </div>
     </div>
-    <!-- <div class="contact-container-wrapper">
+    <div class="row-container">
         <div class="neon-light-bar">
             <div class="neon-light"></div>
         </div>
+    </div>
+    <div class="row-container">
         <h1>Contact Us</h1>
-        <div class="contact-container">
-            <div class="contact-container-items">
-                <div class="contact-container-items-border">
-                    <p>Contact Form</p>
-                    <div class="mb-3">
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Name">
-                    </div>
-                    <div class="mb-3">
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Surname">
-                    </div>
-                    <div class="mb-3">
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email-Address">
-                    </div>
-                    <div class="mb-3">
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Text-Message"></textarea>
-                    </div>
-                </div>
+    </div>
+    <div class="contact-container">
+        <div class="contact-box">
+            <p>Contact Form</p>
+            <div class="mb-3">
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Name">
             </div>
-            <div class="contact-container-items">
-                <p>Location</p>
-                <ul>
-                    <li>
-                        <i class="fa-solid fa-location-dot"></i>9ο km Thessaloniki-Veria P.C. 570 08
-                    </li>
-
-                    <li>
-                        <i class="fa-solid fa-phone"></i>2310 781 454
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-fax"></i>2310 781 363
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-envelope"></i>tsalapataras.rev@gmail.com
-                    </li>
-
-                </ul>
+            <div class="mb-3">
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Surname">
+            </div>
+            <div class="mb-3">
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email-Address">
+            </div>
+            <div class="mb-3">
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Text-Message"></textarea>
             </div>
         </div>
+
+        <div class="contact-box" style="height: fit-content; border: 1px solid rgba(0, 0, 0, 0, 0, 0);">
+            <p>Location</p>
+            <ul>
+                <li class="list-items-row">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>9ο km Thessaloniki-Veria P.C. 570 08</p>
+                </li>
+
+                <li class="list-items-row">
+                    <i class="fa-solid fa-phone"></i>
+                    <p>2310 781 454</p>
+                </li>
+                <li class="list-items-row">
+                    <i class="fa-solid fa-fax"></i>
+                    <p>2310 781 363</p>
+                </li>
+                <li class="list-items-row">
+                    <i class="fa-solid fa-envelope"></i>
+                    <p>tsalapataras.rev@gmail.com</p>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="social-media-line"></div>
+
+    </div>
+    <!-- <div class="social-media-line"></div>
     <div class="social-media-container">
         <div class="social-media-container-items">
             <h1>Our Social</h1>
@@ -689,9 +702,20 @@
             <i class="fa-brands fa-instagram"></i>
         </div>
 
-    </div> -->
+    </div>  -->
 </body>
 <script>
+    let lastKnownScrollPosition = 0;
+    let ticking = false;
+    document.addEventListener("scroll", (event) => {
+        lastKnownScrollPosition = window.scrollY;
+        if (!ticking) {
+            window.requestAnimationFrame(() =>
+                doSomething(lastKnownScrollPosition); ticking = false;
+            )
+        }
+    })
+
     function menubutton() {
         console.log("menu click")
         const navigation = document.getElementById("menu");
